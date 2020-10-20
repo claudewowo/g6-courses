@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta label="viewport" content="width=device-width, initial-scale=1.0">
+  <title>antv/G6 纯 js 使用案例</title>
+  <link rel="stylesheet" href="../begin/reset.css" type="text/css">
+  <style>
+    #graph{
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="graph"></canvas>
+
+  <script>
+    window.onload = function () {
+      const canvas = document.getElementById('graph');
+      const { innerWidth, innerHeight } = window;
+      const ctx = canvas.getContext('2d');
+
+      canvas.style.width = `${innerWidth}px`;
+      canvas.style.height = `${innerHeight}px`;
+      canvas.width = innerWidth * 2;
+      canvas.height = innerHeight * 2;
+
+      ctx.fillStyle = '#c7e5fe';
+      ctx.fillRect(700, 400, 300, 100);
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(1000, 400);
+      ctx.lineTo(700, 400);
+      ctx.lineTo(700, 500);
+      ctx.lineTo(1000, 500);
+      ctx.closePath();
+      ctx.strokeStyle = '#709ef7';
+      ctx.stroke();
+    };
+  </script>
+</body>
+</html>

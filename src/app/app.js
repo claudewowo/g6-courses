@@ -15,6 +15,10 @@ const router = new VueRouter({
       path:      '/',
       component: () => import('../pages/day-01/index.vue'),
     },
+    {
+      path:      '/day-02',
+      component: () => import('../pages/day-02/index.vue'),
+    },
   ],
 });
 

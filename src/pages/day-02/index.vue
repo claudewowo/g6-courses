@@ -2,7 +2,7 @@
   <div class="root">
     <div id="headPanel">
       <span class="logo">G6 入门教程</span>
-      <i class="gb-toggle-btn"/>
+      <i class="gb-toggle-btn" />
     </div>
     <!-- canvas 挂载节点 -->
     <div id="graph" />
@@ -15,7 +15,7 @@ import G6 from '@antv/g6';
 export default {
   data () {
     return {
-      graph:     null,
+      graph: null,
     };
   },
   mounted () {
@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     createGraphic () {
-      const vm = this;
       const graph = new G6.Graph({
         container: document.getElementById('graph'),
         width:     window.innerWidth,
@@ -84,6 +83,7 @@ export default {
           },
         ],
       };
+
       this.graph = graph;
       this.graph.read(data); // 读取数据
     },
