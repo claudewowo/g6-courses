@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <div id="headPanel">
-      <span class="logo">G6 入门教程</span>
+      <span class="logo">G6 入门教程 - 拖拽节点</span>
       <i class="gb-toggle-btn" />
     </div>
     <!-- 左侧功能栏 -->
@@ -93,28 +93,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-  #graph{
-    margin-left: 40px;
-    height: calc(100vh - 40px);
-  }
-  /* 提示框的样式 */
-  .g6-tooltip {
-    position: fixed;
-    top: 0;
-    left: 0;
-    font-size: 12px;
-    color: #545454;
-    border-radius: 4px;
-    border: 1px solid #e2e2e2;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: rgb(174, 174, 174) 0 0 10px;
-    padding: 10px 8px;
-  }
-  .g6-minimap{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-</style>

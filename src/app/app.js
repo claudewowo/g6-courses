@@ -8,22 +8,25 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 import '@styles/base.scss';
 
+const routes = [{
+    path:      '/',
+    component: () => import('../pages/day-01/index.vue'),
+  },
+];
+
+const files = require.context('../pages/', true, /\/index.vue$/);
+
+for (let i = 0; i <= files.keys().length; i++) {
+  if (i < 10) i = `0${i}`;
+  routes.push({
+    path:      `/day-${i}`,
+    component: () => import(`../pages/day-${i}/index.vue`),
+  });
+}
+
 const router = new VueRouter({
-  mode:   'history',
-  routes: [
-    {
-      path:      '/',
-      component: () => import('../pages/day-01/index.vue'),
-    },
-    {
-      path:      '/day-02',
-      component: () => import('../pages/day-02/index.vue'),
-    },
-    {
-      path:      '/day-03',
-      component: () => import('../pages/day-03/index.vue'),
-    },
-  ],
+  mode: 'history',
+  routes,
 });
 
 Vue.use(VueRouter);
