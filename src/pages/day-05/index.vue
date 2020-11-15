@@ -88,6 +88,12 @@ export default {
               fontSize: 20,
             },
           },
+          anchorPoints: [
+            [0, 0],
+            [1, 0],
+            [0, 1],
+            [1, 1],
+          ],
         },
         fitCenter: true,
       });
@@ -107,8 +113,6 @@ export default {
           drawText(cfg, group) {
             group.addShape('text', {
               attrs: {
-                x:            cfg.style.width/2,
-                y:            cfg.style.height/2,
                 text:         cfg.label,
                 fill:         '#fff',
                 fontSize:     14,
@@ -118,6 +122,42 @@ export default {
               },
               className: 'node-text',
               draggable: true,
+            });
+          },
+          // 添加锚点
+          drawAnchor(cfg, group) {
+            const item = group.get('children')[0];
+            const bBox = item.getBBox();
+            const anchors = this.getAnchorPoints(cfg);
+
+            // 绘制锚点坐标
+            anchors && anchors.forEach((p, i) => {
+              const x = bBox.width * (p[0] - 0.5);
+              const y = bBox.height * (p[1] - 0.5);
+
+              /**
+               * 绘制三层锚点
+               * 最底层: 锚点bg
+               * 中间层: 锚点
+               * 最顶层: 锚点group, 用于事件触发
+               */
+              // 视觉锚点
+              group.addShape('circle', {
+                attrs: {
+                  x,
+                  y,
+                  fill:      '#e7e7e7',
+                  stroke:    '#1890ff',
+                  lineWidth: 1,
+                  r:         5,
+                },
+                zIndex:    1,
+                nodeId:    group.get('id'),
+                className: 'node-anchor',
+                draggable: true,
+                isAnchor:  true,
+                index:     i,
+              });
             });
           },
           /*
@@ -146,6 +186,8 @@ export default {
                   ...attrs,
                   fill: '#1890ff',
                   ...attrs.style,
+                  x:    -attrs.style.width / 2,
+                  y:    -attrs.style.height / 2,
                 },
                 className: 'custom-shape', // 添加自定义属性, 方便以后对节点进行查找更新等
                 draggable: true, // 允许自定义图形使用拖拽事件
@@ -155,6 +197,7 @@ export default {
             // 3.
             // this 是当前节点的实例, 并不是 Vue 实例
             this.drawText(cfg, group);
+            this.drawAnchor(cfg, group);
 
             // 4.
             return shape;
@@ -170,7 +213,14 @@ export default {
           */
           setState(name, group, item) {},
           /* 获取当前节点的锚点 */
-          getAnchorPoints(cfg) {},
+          getAnchorPoints(cfg) {
+            return cfg.anchorPoints || [
+              [0.5, 0],
+              [1, 0.5],
+              [0.5, 1],
+              [0, 0.5],
+            ];
+          },
         },
         // 'extendNodeName',
       );
