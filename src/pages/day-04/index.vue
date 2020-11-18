@@ -168,7 +168,7 @@ export default {
           /*
             设置节点状态, 主要是交互状态, 如 hover, active 等.
           */
-          setState(name, group, item) {},
+          setState(name, value, group) {},
           /* 获取当前节点的锚点 */
           getAnchorPoints(cfg) {},
         },
