@@ -13,6 +13,7 @@
 import G6 from '@antv/g6';
 import registerBehavior from './register-behavior';
 import registerNode from './register-node';
+import registerEdge from './register-edge';
 
 const data = {
   nodes: [
@@ -35,18 +36,22 @@ const data = {
   ],
   edges: [
     {
+      // type:   'line',
       source: '1',
       target: '2',
     },
     {
+      // type:   'polyline',
       source: '1',
       target: '3',
     },
     {
+      // type:   'arc',
       source: '2',
       target: '4',
     },
     {
+      // type:   'cubic',
       source: '3',
       target: '4',
     },
@@ -72,6 +77,7 @@ export default {
     createGraphic () {
       registerBehavior(G6);
       registerNode(G6);
+      registerEdge(G6);
 
       const graph = new G6.Graph({
         container: document.getElementById('graph'),
@@ -115,14 +121,41 @@ export default {
             },
           },
         },
+        defaultEdge: {
+          type:  'k-edge',
+          style: {
+            lineAppendWidth: 20,
+          },
+        },
         modes: {
-          default: ['drag-node', 'node-hover', 'node-select'],
+          default: ['drag-node', 'node-hover', 'node-select', 'edge-active'],
         },
         fitCenter: true,
       });
 
       graph.read(data);
       this.graph = graph;
+
+      // 绑定事件
+      // this.bindEvents();
+    },
+    bindEvents() {
+      this.graph.on('edge:mouseenter', e => {
+        if(e.item) {
+          const model = e.item.get('model');
+
+          model.style.stroke = '#1890ff';
+          this.graph.updateItem(e.item, model);
+        }
+      });
+      this.graph.on('edge:mouseleave', e => {
+        if(e.item) {
+          const model = e.item.get('model');
+
+          model.style.stroke = '#e5e5e5';
+          this.graph.updateItem(e.item, model);
+        }
+      });
     },
   },
 };

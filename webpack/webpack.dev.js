@@ -23,7 +23,6 @@ const devServer = {
     historyApiFallback: true,
     contentBase:        path.join(__dirname, '../dist'),
     host:               '127.0.0.1',
-    port:               4300,
     hot:                true,
     open:               false,
     progress:           false,
