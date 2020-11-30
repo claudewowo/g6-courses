@@ -124,7 +124,7 @@ export default {
         defaultEdge: {
           type:  'k-edge',
           style: {
-            lineAppendWidth: 20,
+            lineAppendWidth: 20, // 响应鼠标事件的检测宽度, 当 lineWidth 太小而不易选中时, 可以通过此参数提升击中的范围
           },
         },
         modes: {
@@ -136,26 +136,6 @@ export default {
       graph.read(data);
       this.graph = graph;
 
-      // 绑定事件
-      // this.bindEvents();
-    },
-    bindEvents() {
-      this.graph.on('edge:mouseenter', e => {
-        if(e.item) {
-          const model = e.item.get('model');
-
-          model.style.stroke = '#1890ff';
-          this.graph.updateItem(e.item, model);
-        }
-      });
-      this.graph.on('edge:mouseleave', e => {
-        if(e.item) {
-          const model = e.item.get('model');
-
-          model.style.stroke = '#e5e5e5';
-          this.graph.updateItem(e.item, model);
-        }
-      });
     },
   },
 };
