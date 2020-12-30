@@ -4,6 +4,16 @@
       <span class="logo">G6 入门教程 - 脑图</span>
       <i class="gb-toggle-btn" />
     </div>
+    <div class="crumb-nav">
+      <template v-for="(nav, index) in crumbNavs">
+        {{ index > 0 ? '>' : '' }}
+        <span
+          :key="nav.id"
+          class="nav-text"
+          @click="changeNode(nav)"
+        >{{ nav.label }}</span>
+      </template>
+    </div>
     <!-- canvas 挂载节点 -->
     <div id="graph" />
     <!-- 输入框 -->
@@ -185,6 +195,7 @@ export default {
       currentNode: {
         id: null,
       },
+      crumbNavs: [],
     };
   },
   mounted () {
@@ -279,6 +290,29 @@ export default {
       this.graph = graph;
       this.bindEvents();
     },
+    /*
+    * 1:        1
+    * 1-1:      1     1-1
+    * 1-1-1:    1     1-1     1-1-1
+    * 1-1-1-1:  1     1-1     1-1-1      1-1-1-1
+    */
+    getParentNodes(node, id, deep = 1) {
+      if(id.substring(0, 1) === '1' && deep === 1) {
+        this.crumbNavs.push(node);
+      }
+      if(id.length > 1) {
+        const $id = id.substring(0, deep * 2 + 1);
+        const $node = node.children.find(item => item.id === $id);
+
+        if($node) {
+          this.crumbNavs.push($node);
+
+          if($node.children) {
+            this.getParentNodes($node, id, deep + 1);
+          }
+        }
+      }
+    },
     bindEvents() {
       this.graph.on('node:click', e => {
         const model = e.item.getModel();
@@ -292,6 +326,9 @@ export default {
           /* 节点点击事件 */
           // 记录当前节点 id
           this.currentNode.id = model.id;
+          this.crumbNavs = [];
+          // 查找所有的节点路径
+          this.getParentNodes(data, model.id);
           this.graph.changeData(JSON.parse(JSON.stringify(model)));
         }
         e.item.toFront();
@@ -350,11 +387,29 @@ export default {
         }
       }
     },
+    changeNode(node) {
+      this.graph.changeData(JSON.parse(JSON.stringify(node)));
+    },
   },
 };
 </script>
 
 <style lang="scss">
+  .crumb-nav{
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    background:#73bf8f;
+    border-radius: 4px;
+    color:#fff;
+  }
+  .nav-text{
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    margin:0 10px;
+    cursor: pointer;
+  }
   .g6-component-contextmenu{
     width: 100px;
     padding: 6px 0;

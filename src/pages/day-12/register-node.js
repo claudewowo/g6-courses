@@ -3,11 +3,19 @@
 export default G6 => {
   G6.registerNode('tree-node', {
     draw (cfg, group) {
-      const style = this.getShapeStyle(cfg, group);
+      const isNodeStyle = cfg.nodeType === 'node';
+      const style = this.getShapeStyle(cfg, group); // node 样式
+      const textStyle = { ...style }; // 文本节点样式
+      const size = G6.Util.getTextSize(cfg.label, 14);
+
+      if (!isNodeStyle) {
+        delete textStyle.fill;
+        delete textStyle.stroke;
+        textStyle.width = size[0] + 12;
+      }
+      const attrs = isNodeStyle ? style : textStyle;
       const shape = group.addShape('rect', {
-        attrs: {
-          ...style,
-        },
+        attrs,
         name: 'rect-node',
       });
 
@@ -22,16 +30,20 @@ export default G6 => {
         name: 'node-label',
       });
 
-      /* if (cfg.children) {
+      if (cfg.children) {
+        const circleX = !isNodeStyle && style.width > size[0] ? (-style.width / 2 + size[0] + 22) : (attrs.width / 2 + 11);
+
         group.addShape('circle', {
           attrs: {
             r:      7,
             fill:   '#fff',
             stroke: '#ccc',
-            x:      style.width / 2 + 11,
+            x:      circleX,
           },
           name: 'node-icon',
         });
+
+        const iconX = !isNodeStyle && style.width > size[0] ? (-style.width / 2 + size[0] + 17) : (style.width / 2 + 6);
 
         group.addShape('text', {
           attrs: {
@@ -39,12 +51,12 @@ export default G6 => {
             fontSize: 16,
             fill:     '#ccc',
             cursor:   'pointer',
-            x:        style.width / 2 + 6,
+            x:        iconX,
             y:        6,
           },
           name: 'node-icon-text',
         });
-      } */
+      }
 
       return shape;
     },
