@@ -1,0 +1,28 @@
+@font-face {font-family: "graphicon";
+  src: url('iconfont.eot?t=1611470512745'); /* IE9 */
+  src: url('iconfont.eot?t=1611470512745#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAPcAAsAAAAACDwAAAOPAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDHAqEAIMsATYCJAMQCwoABCAFhG0HPxsVB8gekqTDAQX7BQCgzQIQD/Rj7n2Zahok0bij+vUlEkmlUQmNTGlct1C5TvYSdmRXVQ+OViqx92hk0EsRFApHc5vgpXBEs+SStD+/2+PHRFNCErFxcMx0aQmYt9KBTDkyKFPTBjiaTgcU1dQ8wD0g/nI48yo8urYTUDVLA9p1Wu+khIz0CwhXsYJJiZRBrskNyoJiydSsj5qAVo7VxAWAR//vwz/oBRYQFRKQnSYnE03qf8HbcRL/xxCQMODxbBBnkbAGZMJZqeOAGobXkKp664h1oKwsMladydvx//+xaC+KMlXo+48XCUUg2XUwhkjiC2xBrDQBnQDKccgS4YVMKaOFJwAvQHAjbaOkWmfh42JlZaHfyMNOseU/eODx8KHn48fejx7FIORl7Sk6ueFnp2ZLJOeF57fZeWt3FxlZtfuiPq+pmhkxv++hMTVxwDis3cd73rWzjJmaKTwt3SncLtgm0BGc4BfIJEAmBHKPDO/6R9K5xvaAethX5J48FKd7DnJ4AU8JcHXMCCF5xAtkGzFmhbnbp0Em2e1Tf36TB+S+a9inYtI+efAdVBFIH8/058YstPjBbZKSduc/BXWDYWl77afq0BD8KGjgkDUpkWhj4tGmX2q+pHm1mexR8ZtqqyqrLqtuuDXg8QSa4rhPNjWx2n0SeTwzDhnPtNckx/mX5wAO0sHb3MzKAk0Gtr79Xanvkt7fP05wfOeM0isJkLrn1n/z5I0+1z31Wuq1gNQ5J+/Ri+QIbrgjYXqajkg7oGBqicTRA/KEtP2z3dy/POUO5rb4ysJ+aTWf+sZLWNxe+HuEuvA/5uULAPKzJCbGnDW5WlVunyXbl7p5BEGsmWJP16sxVAM9m6BswEFUMgNJ2RwyY9egoGYMRWUbULXKeXZNTxpVyKzAinIEQdsiRE3vkLRdIjP2JRQMfYGidiChai/wL1mzEGLZ7NOQ2ahBWACxnB46M9upIHeDwrkxMyn2yQc0rbMPdLV0srEZPtAcY0S6K2oZtg5RJt3BCe2GtxtBikkX5HYpxrafTW3tqLI7lcLpLqXsMCHGhjQgTADE4siD7la3pXK/30CC44Yxa0rq3AfIZDk3DnRp0WmBnCkerUqu5ZZ0LqEmg00HopjIHXBCNnSjYQJSyjtdIM5WEtMj+NSkjStFtVWU5lfdn7DKQyxDzsyBQCSiEA3xNj4amWaSmYgItdmRWShJAA==') format('woff2'),
+  url('iconfont.woff?t=1611470512745') format('woff'),
+  url('iconfont.ttf?t=1611470512745') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1611470512745#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "graphicon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ok:before {
+  content: "\e638";
+}
+
+.icon-error:before {
+  content: "\e6a5";
+}
+
+.icon-database:before {
+  content: "\e600";
+}
