@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "graphicon";
+  src: url('iconfont.eot?t=1611462251105'); /* IE9 */
+  src: url('iconfont.eot?t=1611462251105#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOsAAsAAAAAB8wAAANgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqDMIJmATYCJAMMCwgABCAFhG0HOhuwBlFUTeJkX2FThnuRYFvLblwuGuF9j5cfIxzwDTgYAhYAAAAAEA9f+72eu7vvBcElClBlIgHHRyEqMioayOgIl5KskNU8vvLf/1qbUwkJ5rpY24R7PZ2/63/f7D9raIqXIWRrYhlCI5P4+XH2/mSnOTT5EBqVhgqlk5NQKpivZ4DB63WCJ669HgD0/XdwzHRpE8hb6UCmHBkU1TbACQ4oMv8f7AH/QV7Qfxi78iL2E2g1rCy0vrZzAkmFMSwQV6behWRKo9SkhmahLplbkqEHlebUTM/Avf/78Q9mIwmSKoMxduNydQALP+HnjPOGsO8icMczgS0iYwYoxGGpZVsk9M+IaFUk0frYWhHSWK7H56ii2vyHRxJEDUZyO5hAgcRPsDmxdAZ5Z71XBjU6cIc3Bq5fTpZNcxhkMsl8H4uKoywtjx5ad6LFwebFPZXdfrzamm8/i/OD49appDh+DeIOX7Zec1ttPuXaZ1unrePNE2Vf2OV3eL1agq2LZFAkgOJ0hvX6+88w9p8guvmsZx69SvGjl0U2nB/zGL1TAdIiNkRYaOtMyOyewNYBRZma2tFZfTvKxPSOOenj//N9SXNoW9YhsJz4b/s3vsdJSKCNv2a4ER6Eh/DhY2W0ohmzepp6eMAe4hZPSyul0/mz1RzjP+sMV+DM+fhIErax30eKP/n43T9Pp/2ni+bl/vAX09tbML6iv3O/PMUTne1XcgITjgEaRu/yOQwWuY/E/tXfuP2mmdqF+UkZHMCPltCG/PYJmiUY98+Ule+A8s75hi8XoEZW2qbI9qXvW6M1VjSQo9dPf9mAmkxoNoAhaTIEWbMRZMHOQKXNHNSaLUGraeuL2/RhEVHIwJQbAKHbLSSdPiDr9oIs2G+oDPqFWndEoNVm9K3ZZizM9BpTV9EAe1M0+9ITll6lg9Qj0odOl5N8H39GHJgubFTr2dA6ecRjTAhGelMpgYKli2vgMHIciT5Li/qqaijla7WaKPuial+6kLaGkS6FDKCeKWTqkzzCba6kcz9/hOiGHF1cU1NhPkNYwGwdNVTVWyDXJV6rmmt5JDCia1IUAQlMcqE1YCKO6ZeQX97LQvqUKqOH16epoUairaQ6v8x9vjIPsY6xfQ4MwiIcVBfMkpPnXdXtdQMCAA==') format('woff2'),
+  url('iconfont.woff?t=1611462251105') format('woff'),
+  url('iconfont.ttf?t=1611462251105') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1611462251105#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "graphicon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-error:before {
+  content: "\e6a5";
+}
+
+.icon-database:before {
+  content: "\e600";
+}

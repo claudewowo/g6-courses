@@ -1,0 +1,23 @@
+{
+  "id": "2345895",
+  "name": "flow job",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "17362346",
+      "name": "异常",
+      "font_class": "error",
+      "unicode": "e6a5",
+      "unicode_decimal": 59045
+    },
+    {
+      "icon_id": "17875016",
+      "name": "数据库",
+      "font_class": "database",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
