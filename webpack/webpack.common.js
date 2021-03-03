@@ -93,8 +93,9 @@ const webpackConfig = {
       use:  [{
         loader:  'url-loader',
         options: {
-          limit: 8192,    // 8k
-          name:  'images/[name].[hash:7].[ext]',
+          limit:    8192,    // 8k
+          name:     'images/[name].[hash:7].[ext]',
+          esModule: false,
         },
       }],
       exclude: [],

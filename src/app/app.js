@@ -13,14 +13,15 @@ const routes = [{
     component: () => import('../pages/day-01/index.vue'),
   },
 ];
-
 const files = require.context('../pages/', true, /\/index.vue$/);
 
-for (let i = 0; i <= files.keys().length; i++) {
-  if (i < 10) i = `0${i}`;
+for (let i = 0; i < files.keys().length; i++) {
+  const key = files.keys()[i];
+  const path = key.split('/')[1];
+
   routes.push({
-    path:      `/day-${i}`,
-    component: () => import(`../pages/day-${i}/index.vue`),
+    path:      `/${path}`,
+    component: () => import(`../pages/${path}/index.vue`),
   });
 }
 
