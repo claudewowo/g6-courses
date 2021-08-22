@@ -18,6 +18,7 @@ module.exports = {
     ],
     globals: {
         $app: true,
+        $:    true,
     },
     rules: {
         // 数组花括号两边的空格
