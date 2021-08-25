@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>前端技能树</title>
+  </head>
+
+  <body>
+    <div class="el-container">
+      <div class="layout-searcher">
+        <!-- 级联菜单 -->
+        <div class="form-item mb10">
+          <span class="form-label">选择要展示的技能:</span>
+          <div class="skill-searcher">
+            <input type="text" id="skill_input" value="前端技能树" readonly />
+            <i class="iconfont icon-arrow-bottom"></i>
+            <div id="skill-tree"></div>
+          </div>
+          <div class="form-check-group">
+            <span class="form-label">选择图布局方式:</span>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="graphLayout" id="mindmap">
+              <label class="form-check-label" for="mindmap">脑图布局</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="graphLayout" id="indented">
+              <label class="form-check-label" for="indented">文件系统布局</label>
+            </div>
+          </div>
+        </div>
+        <div class="admin-btns">
+          <div class="form-item inline">
+            <span class="form-label">编辑模式</span>
+            <span id="edit-switch" class="switch-btn"><span class="switch-inner"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="layout-graph">
+        <!-- 画布容器 -->
+        <div id="graph-container"></div>
+        <div id="form-params">
+          <h3 class="mt10 mb10">节点信息:</h3>
+          <div class="form-item">
+            <span class="form-label">节点名称:</span>
+            <input type="text" class="form-input" data-key="label" placeholder="必填">
+          </div>
+          <div class="form-item">
+            <span class="form-label">考试链接:</span>
+            <input type="text" class="form-input" data-key="testURL">
+          </div>
+          <div class="form-item">
+            <span class="form-label">二维码链接:</span>
+            <input type="text" class="form-input" data-key="QRCode">
+          </div>
+          <div class="form-item mt15">
+            <button type="button" id="form-submit" class="form-btn btn-primary">提交</button>
+            <button type="button" id="form-cancel" class="form-btn">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery.2.0.3.min.js"></script>
+    <script src="./js/g6.min.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/create-graph.js"></script>
+    <script src="./js/skill-tree.js"></script>
+  </body>
+</html>
