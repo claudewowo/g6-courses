@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>前端技能树</title>
+  </head>
+
+  <body>
+    <div class="el-container">
+      <div class="layout-searcher">
+        <!-- 级联菜单 -->
+        <div class="form-item mb10">
+          <span class="form-label">选择要展示的技能:</span>
+          <div class="skill-searcher">
+            <input type="text" id="skill_input" value="前端技能树" readonly />
+            <i class="iconfont icon-arrow-bottom"></i>
+            <div id="skill-tree"></div>
+          </div>
+          <div class="form-check-group">
+            <span class="form-label">选择图布局方式:</span>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="graphLayout" id="mindmap">
+              <label class="form-check-label" for="mindmap">脑图布局</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="graphLayout" id="indented">
+              <label class="form-check-label" for="indented">文件系统布局</label>
+            </div>
+          </div>
+        </div>
+        <div class="admin-btns">
+          <div class="form-item inline">
+            <span class="form-label">编辑模式</span>
+            <span id="edit-switch" class="switch-btn"><span class="switch-inner"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="layout-graph">
+        <!-- 画布容器 -->
+        <div id="graph-container"></div>
+        <div id="form-params">
+          <h3 class="mt10 mb10">节点信息:</h3>
+          <div class="form-item">
+            <span class="form-label">节点名称:</span>
+            <input type="text" class="form-input" data-key="label" placeholder="必填">
+          </div>
+          <div class="form-item">
+            <span class="form-label">考试链接:</span>
+            <input type="text" class="form-input" data-key="testURL">
+          </div>
+          <div class="form-item">
+            <span class="form-label">二维码链接:</span>
+            <input type="text" class="form-input" data-key="QRCode">
+          </div>
+          <div class="form-item mt15">
+            <button type="button" id="form-submit" class="form-btn btn-primary">提交</button>
+            <button type="button" id="form-cancel" class="form-btn">取消</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="fullLoading" class="el-loading-mask">
+        <div class="el-loading-spinner">
+          <i class="iconfont icon-Loading"></i>
+          <p class="el-loading-text">拼命加载中</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="toolbar-help" class="dialog">
+        <div class="dialog-container">
+            <i class="iconfont icon-failed"></i>
+            <h2>画布支持的操作:</h2>
+
+            <h3 class="mb10 mt15">工具栏:</h3>
+            <p>通过点击工具栏按钮可完成对画布和流程的编辑, 如缩放, 移动等</p>
+
+            <h3 class="mb10 mt15">手势:</h3>
+            <p>1. 支持触摸板的设备可以通过手势完成画布操作</p>
+            <p>2. <i class="iconfont icon-fingers-zoom"></i> = 缩放画布</p>
+            <p>3. <i class="iconfont icon-fingers-move"></i> = 画布万向滚动</p>
+
+            <h3 class="mb10 mt15">鼠标:</h3>
+            <p>1. 支持鼠标操作画布</p>
+            <p>2. 按住 <i class="iconfont icon-left-btn"></i> = 拖动画布或节点</p>
+
+            <h3 class="mb10 mt15">键盘快捷键:</h3>
+            <p><i class="iconfont icon-shift"></i> + <i class="iconfont icon-left-click"></i> = 框选节点</p>
+        </div>
+    </div>
+
+    <script src="./js/jquery.2.0.3.min.js"></script>
+    <script src="./js/g6.min.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/create-graph.js"></script>
+    <script src="./js/skill-tree.js"></script>
+  </body>
+</html>
