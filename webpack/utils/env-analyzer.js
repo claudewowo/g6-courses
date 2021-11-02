@@ -5,7 +5,7 @@
  * npm run dev --param
  */
 
-const { original } = JSON.parse(process.env.npm_config_argv);
+const argv = require('minimist')(process.argv.slice(2));
 
 const envConfig = {
   excludes:  [],  // dev 时忽略的项目
@@ -14,7 +14,7 @@ const envConfig = {
 };
 
 // 获取 xx=xx 参数
-original.slice(2).forEach(item => {
+argv._.forEach(item => {
   const param = item.replace(/^--/, '');
   const [key, value] = param.split('=');
 
