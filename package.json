@@ -1,6 +1,6 @@
 {
   "name": "welabx-g6",
-  "version": "0.4.6",
+  "version": "0.6.8",
   "description": "welabx - antv G6",
   "main": "src/components/graph/graph.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "author": "claude.wu",
   "license": "MIT",
   "dependencies": {
-    "@antv/g6": "^4.3.3",
+    "@antv/g6": "^4.3.11",
     "insert-css": "^2.0.0"
   },
   "devDependencies": {
@@ -42,8 +42,8 @@
     "eslint": "^7.4.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^4.0.2",
-    "eslint-plugin-html": "^6.0.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-vue": "^8.1.1",
     "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^4.3.0",
