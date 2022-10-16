@@ -1,27 +1,27 @@
 {
-  "name": "welabx-g6",
-  "version": "0.6.8",
-  "description": "welabx - antv G6",
-  "main": "src/components/graph/graph.js",
+  "name": "g6-courses",
+  "version": "0.1.0",
+  "description": "antv G6 courses",
   "scripts": {
     "build": "node webpack/build.js",
     "prod": "node webpack/build.js",
     "dev": "webpack-dev-server --config webpack/webpack.dev.js",
     "dll": "webpack -p --progress --config webpack/webpack.dll.js"
   },
-  "homepage": "https://claudewowo.github.io/welabx-g6/build/",
+  "homepage": "https://github.com/claudewowo/g6-courses",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/claudewowo/welabx-g6.git"
+    "url": "git+https://github.com/claudewowo/g6-courses.git"
   },
   "keywords": [
     "antv/g6",
-    "workflow"
+    "learning",
+    "courses"
   ],
-  "author": "claude.wu",
+  "author": "keman.wu",
   "license": "MIT",
   "dependencies": {
-    "@antv/g6": "^4.3.11",
+    "@antv/g6": "^4.7.5",
     "insert-css": "^2.0.0"
   },
   "devDependencies": {
